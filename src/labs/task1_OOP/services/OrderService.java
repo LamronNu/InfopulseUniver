@@ -45,7 +45,7 @@ public abstract class OrderService {
 
     public void setPrice(double price) {
         this.price = price;
-        this.amount = this.price * count;
+        this.amount = price * count;
     }
 
     public int getCount() {
@@ -54,7 +54,7 @@ public abstract class OrderService {
 
     public void setCount(int count) {
         this.count = count;
-        this.amount = price * this.count;
+        this.amount = price * count;
     }
 
     public double getAmount() {
@@ -63,7 +63,7 @@ public abstract class OrderService {
 
     public void setAmount(double amount) {
         this.amount = amount;
-        this.price = this.amount / count;
+        this.price = amount / count;
     }
 
     //
