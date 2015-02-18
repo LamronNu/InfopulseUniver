@@ -18,50 +18,31 @@ class Semaphore {
         if (activeThreads.contains(Thread.currentThread())) { //when method is called twice
             throw new IllegalStateException();
         }
-        //check
         Thread currentThread = Thread.currentThread();
-        //while()
-        if (sleepThreads.size() != 0                     //if exists sleeping threads
-                && !sleepThreads.contains(currentThread) //and current is not in queue
-                && value != 0){                         //but value>0
 
-            sleepThreads.add(currentThread);            //add it to queue
-            log.info("    !!!" + currentThread.getName() + " add to"
-                    + " sleepThreads: " + sleepThreads);
-//            log.info(currentThread.getName() + " is waiting for semaphore");
-            wait();
-
-            while (sleepThreads.element()!= null
-                    && sleepThreads.element() != Thread.currentThread()) {
-                wait();
-            }
-           // if (value == 0){break;}
-                Thread pt = sleepThreads.poll();
-                log.info("    " + pt.getName() + " remove from"
-                        + " sleepThreads: " + sleepThreads);
-
+        if (sleepThreads.size() != 0                        //if exists sleeping threads
+                && !sleepThreads.contains(currentThread)    //and current is not in queue
+                && value != 0){                             //but value>0
+            sleepThreads.add(currentThread);                //so add it to queue
+//            log.info("    !!!" + currentThread.getName() + " add to"
+//                    + " sleepThreads: " + sleepThreads);
+            waitNextThread();
         }
+
         while (value == 0) {
             if (!sleepThreads.contains(currentThread)){
                 sleepThreads.add(currentThread);
-
-                log.info("    " + currentThread.getName() + " add to"
-                        + " sleepThreads: " + sleepThreads);
+//                log.info("    " + currentThread.getName() + " add to"
+//                        + " sleepThreads: " + sleepThreads);
             }
-//            log.info(currentThread.getName() + " is waiting for semaphore");
-            wait();
-            while (sleepThreads.element() != null
-                    && sleepThreads.element() != Thread.currentThread()) {
-                wait();
-            }
-
-            Thread pt = sleepThreads.poll();
-            log.info("    " + pt.getName() + " remove from"
-                    + " sleepThreads: " + sleepThreads);
+            waitNextThread();
         }
 
-
-
+        if (sleepThreads.size() != 0) {
+            Thread pt = sleepThreads.poll();
+//            log.info("    " + pt.getName() + " remove from"
+//                    + " sleepThreads: " + sleepThreads);
+        }
 
         activeThreads.add(Thread.currentThread()); //remember
         value--;
@@ -70,7 +51,15 @@ class Semaphore {
                 ", sleepThreads: " + sleepThreads);
     }
 
-    public synchronized void release() throws InterruptedException {
+    private void waitNextThread() throws InterruptedException {
+        wait();
+        while (sleepThreads.element()!= null
+                && sleepThreads.element() != Thread.currentThread()) {
+            wait();
+        }
+    }
+
+    public synchronized void release() {
 
         if (!activeThreads.contains(Thread.currentThread())) {
             throw new IllegalStateException();
@@ -78,19 +67,12 @@ class Semaphore {
         activeThreads.remove(Thread.currentThread());
 
         value++;
-//        log.info(Thread.currentThread().getName() + " takes semaphore");
-        log.debug("    " + "release: " + value + " (" +
-                Thread.currentThread().getName() + ") " +
-                ", sleepThreads: " + sleepThreads);
+
+//        log.debug("    " + "release: " + value + " (" +
+//                Thread.currentThread().getName() + ") " +
+//                ", sleepThreads: " + sleepThreads);
 
         this.notifyAll();
-
-        //--
-
-//        sleepThreads.add(Thread.currentThread());
-//        log.info("    " + Thread.currentThread().getName() + " add to"
-//                + " sleepThreads: " + sleepThreads);
-        //this.wait();//--
     }
 
 }
@@ -110,18 +92,14 @@ class MyThread extends Thread{
     public void run(){
         while (true){
             try {
-//                log.info(Thread.currentThread().getName() + " tries to take semaphore");
+//               log.info(Thread.currentThread().getName() + " tries to take semaphore");
                 s.acquire();
 //                log.info(Thread.currentThread().getName() + " takes semaphore");
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException e) {/*NOP*/
             } finally{
 //                log.info(Thread.currentThread().getName() + " release semaphore");
-                try {
-                    s.release();
-                } catch (InterruptedException e) {
-                    /*NOP*/
-                }
+                   s.release();
             }
         }
     }
@@ -129,8 +107,8 @@ class MyThread extends Thread{
 
 class TestSemaphore {
     private static final Logger log = Logger.getLogger(TestSemaphore.class);
-    private static final int capacityS = 3;
-    private static final int countT = 7;
+    private static final int capacityS = 5;
+    private static final int countT = 10;
 
     public static void main (String[] args) throws InterruptedException {
         log.info("---------------------");
