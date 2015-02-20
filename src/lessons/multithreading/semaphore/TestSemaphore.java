@@ -4,10 +4,10 @@ import org.apache.log4j.Logger;
 import java.util.*;
 
 class Semaphore {
-    private static final Logger log = Logger.getLogger(Semaphore.class);
+    private static final Logger log = Logger.getLogger(Barrier.class);
     int value;
-    Set<Thread> activeThreads = new HashSet<Thread>();
-    Queue<Thread> sleepThreads = new LinkedList<Thread>();
+    private Set<Thread> activeThreads = new HashSet<Thread>();
+    private Queue<Thread> sleepThreads = new LinkedList<Thread>();
 
     public Semaphore(int value) {
         this.value = value;

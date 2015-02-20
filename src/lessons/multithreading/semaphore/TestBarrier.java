@@ -2,13 +2,14 @@ package lessons.multithreading.semaphore;
 
 import org.apache.log4j.Logger;
 
-import java.util.LinkedList;
+import java.util.*;
 
 class Barrier {
     private static final Logger log = Logger.getLogger(Barrier.class);
     int value;
     private int barrier;
     private LinkedList<Thread> waitingThreads = new LinkedList<Thread>();
+    private Set activeThreads = new HashSet();
 
     public Barrier(int value) {
         this.value = value;
@@ -16,11 +17,12 @@ class Barrier {
     }
 
     public synchronized void await() throws InterruptedException {
+        Thread currentThread = Thread.currentThread();
 
-        if (waitingThreads.contains(Thread.currentThread())) { //when method is called twice
+        if (activeThreads.contains(currentThread)) { //when method is called twice
             throw new IllegalStateException();
         }
-        Thread currentThread = Thread.currentThread();
+        activeThreads.add(currentThread);
         while (value == 0) { //  means that waitingThreads.size() == barrier
             log.info("  !!!" + currentThread.getName() + " is waiting.... "
                     + " waitingThreads: " + waitingThreads
@@ -76,10 +78,10 @@ class Barrier {
 
     public synchronized void release() {
 
-        if (!waitingThreads.contains(Thread.currentThread())) {
+        if (!activeThreads.contains(Thread.currentThread())) {
             throw new IllegalStateException();
         }
-        //waitingThreads.remove(Thread.currentThread());
+        activeThreads.remove(Thread.currentThread());
 
         //value++;
 
@@ -110,13 +112,13 @@ class TestThread extends Thread{
 //               log.info(Thread.currentThread().getName() + " tries to take semaphore");
                 b.await();
                 log.info(Thread.currentThread().getName() + " takes barrier");
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {/*NOP*/
+                Thread.sleep(500);
+            } catch (InterruptedException e) {/*NOP*/}
+            finally{
+
+                b.release();
+                log.info(Thread.currentThread().getName() + " release");
             }
-          finally{
-                log.info(Thread.currentThread().getName() + " end");
-//                b.release();
-           }
         }
     }
 }
