@@ -3,45 +3,38 @@ package labs.task2_Strings;
 import java.util.ArrayList;
 import java.util.List;
 
-class Sentence {
+class Sentence extends Lexeme{
     public String value;
-    private List<Lexeme> lexemes;
-    //
+    private List<Lexeme> lexemes = new ArrayList<Lexeme>();
+    private List<Interval> intervals = new ArrayList<Interval>();
+    private List<Word> words = new ArrayList<Word>();
+
+    //constructor
     public Sentence(String text) {
         //lexemes = new ArrayList<Lexeme>();
         this.value = text;
-
-        lexemes = parseText(text);
-        //
-//        for (String s : tLexemes)
-//            lexemes.add(new Lexeme(s));
+        parseText(text);//fill lexemes
     }
 
-    private List<Lexeme> parseText(String text) {
-        List<Lexeme> tLexemes = new ArrayList<Lexeme>();
-        //check length
-
-        //parse text
-        boolean nextIsPunctuationMark = Interval.isPunctuationMark(text.charAt(1));
-        for (int i = 0; i < text.length() - 1; i++){
-
-            char currentChar = text.charAt(i);
-            while (!nextIsPunctuationMark) {
-                Lexeme lexeme = new Word();
+    private void parseText(String text) {
+        int i = 0;
+        while (i < text.length() - 1){
+            boolean isPunctuationMark = isPunctuationMark(text.charAt(i));
+            Lexeme lexeme = isPunctuationMark ? new Interval() : new Word();
+            do {
+                lexeme.addChar(text.charAt(i++));
             }
+            while (i < text.length()
+                    && isPunctuationMark == isPunctuationMark(text.charAt(i)));
 
+            if (isPunctuationMark) {
+                intervals.add((Interval)lexeme);
+            } else{
+                words.add((Word)lexeme);
+            }
+            lexemes.add(lexeme);
         }
-
-        return tLexemes;
     }
-
-    /*Ну и, т.к. мы будем использовать в качестве основного источника получения
-      всяких там данных из текста, то реализовать тут можно геттеры и сеттеры
-       отдельных частей параграфа.
-
-      А т.к. все предложения заносятся последовательно, то
-      и порядок, конечно же, сохранится.
-     */
 
     public String getText() {
         String text = "";
@@ -49,5 +42,49 @@ class Sentence {
             text += s.getText();
         }
         return text;
+    }
+
+    public String getFullInfo() {
+        return "Your text is: " + getText() + "\n"
+                + "Lexemes: " + lexemes + "\n"
+                + "  count -- " + lexemes.size() + "\n"
+                + getSymbolsInfo(lexemes) + "\n"
+                + "Words: " + words + "\n"
+                + "   count -- " + words.size() + "\n"
+                + getWordInfo(words) + "\n"
+                + "Intervals: : " + intervals + "\n"
+                + "   count -- " + intervals.size() + "\n";
+
+    }
+
+    private String getWordInfo(List<Word> words) {
+        String result1 = "     Letters: ";
+        String result2 = "\n     Unique letters: ";
+        String result3 = "\n     Digits: ";
+        String result4 = "\n     Unique digits: ";
+        for (Word word : words){
+            result1 += word.getLetters();
+            result2 += word.getUniqueLetters();
+            result3 += word.getDigits();
+            result4 += word.getUniqueDigits();
+        }
+        return result1 + result2 + result3 + result4;
+    }
+
+    private String getSymbolsInfo(List<Lexeme> lexemes) {
+        String result = "      Symbols: ";
+        for (Lexeme lexeme : lexemes){
+            result += lexeme.getSymbols();
+        }
+        result += "\n" + "Unigue symbols: " ;
+        for (Lexeme lexeme : lexemes){
+            result += lexeme.getUniqueSymbols();
+        }
+        return result;
+    }
+
+
+    public List<Word> getWords() {
+        return new ArrayList<Word>(words);
     }
 }
