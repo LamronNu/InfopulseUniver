@@ -19,7 +19,7 @@ class ThreadPool{
                         w = null;
                         synchronized(workers){
                             workers.add(this);
-                           // this.notify();
+                            workers.notify();
                         }
 
                     } catch (InterruptedException e){
@@ -44,14 +44,11 @@ class ThreadPool{
     }
 
     public void execute() throws InterruptedException {
-        System.out.println(works);
         while(works.size() != 0){
-            while (workers.size() == 0) {
-//                try {
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+            synchronized (workers) {
+                while (workers.size() == 0) {
+                    workers.wait();
+                }
             }
             Workable w = works.poll();
             MyThread worker = workers.get(0);
@@ -68,7 +65,7 @@ class ThreadPool{
             e.printStackTrace();
         }
         if (works.size() == 0) {
-            System.out.println("Works is empty" + works);
+            System.out.println("Works is empty " + works);
         }
         for (int i = 0; i < workers.size(); i++){
             workers.get(i).interrupt();

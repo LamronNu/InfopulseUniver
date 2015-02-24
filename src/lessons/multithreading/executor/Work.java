@@ -1,7 +1,5 @@
 package lessons.multithreading.executor;
 
-import org.apache.log4j.Logger;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -18,33 +16,13 @@ class Work implements Workable{
         this.ms = s * 1000;
     }
 
-    public int getMs() {
-        return ms;
-    }
-
-    public void setMs(int ms) {
-        this.ms = ms;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public  void work() {
-        System.out.println("Work-" + id + " is working... (" + Thread.currentThread().getName() + ")");//, sleep " + ms/1000 + " s)");
-//        try {
-//            Thread.sleep(ms);
-//        } catch (InterruptedException e) {}
+        System.out.println("Work-" + id + " is working... (" + Thread.currentThread().getName() + ")");
         long sum = 0;
         for (int i = 0; i<ms*100; i++)
             sum += i;
         System.out.println("Work-" + id + " is finish. sum=" + sum);
-        //((ThreadPool.MyThread)Thread.currentThread()).setWork(null);
     }
 
     @Override
