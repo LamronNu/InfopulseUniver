@@ -74,7 +74,6 @@ class NoneBlockedQueue<T>{
 
     @Override
     public String toString() {
-        //if (first == null)  return "[]";
         String result = "[";
         Element element = first;
         while (element != null){

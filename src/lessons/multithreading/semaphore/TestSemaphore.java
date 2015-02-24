@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import java.util.*;
 
 class Semaphore {
-    private static final Logger log = Logger.getLogger(Barrier.class);
+    private static final Logger log = Logger.getLogger(Semaphore.class);
     int value;
     private Set<Thread> activeThreads = new HashSet<Thread>();
     private Queue<Thread> sleepThreads = new LinkedList<Thread>();
@@ -124,9 +124,9 @@ class TestSemaphore {
 
         }
         //System.out.println(Thread.currentThread().getContextClassLoader().getResource("__log4j.properties"));
-        Thread.sleep(5*1000);
-        log.info("---------------------");
-        System.exit(-1);
+        //Thread.sleep(5*1000);
+        //log.info("---------------------");
+        //System.exit(-1);
 
 
 

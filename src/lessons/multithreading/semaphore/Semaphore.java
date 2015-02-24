@@ -1,4 +1,0 @@
-package lessons.multithreading.semaphore;
-
-
-
