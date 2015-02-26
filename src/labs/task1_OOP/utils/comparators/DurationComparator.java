@@ -1,4 +1,4 @@
-package labs.task1_OOP.utils;
+package labs.task1_OOP.utils.comparators;
 
 import labs.task1_OOP.services.Transfer;
 

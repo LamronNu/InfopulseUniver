@@ -1,13 +1,17 @@
 package labs.task1_OOP.services;
 
+import labs.task1_OOP.utils.Money;
+
+import java.math.BigDecimal;
+
 public abstract class OrderService {
 
     //fields
     private String name = "Basic service";
     //private boolean facultative = false;
     private int count = 1;
-    private double price; //todo BigDecimal??
-    private double amount;
+    private Money price;
+    private Money amount;
 
 //    private Currency currency = Currency.getInstance(Locale.getDefault());
 //    private Currency basicCurrency = Currency.getInstance("UAN");
@@ -16,19 +20,31 @@ public abstract class OrderService {
 //    private double basicAmount;
 
     //constructors
-
     public OrderService(String name, double price) {
-        this.name = name;
-        this.price = price;
-        this.amount = price;
+        this(name,price,1);
     }
 
     public OrderService(String name, double price, int count) {
+        checkAmount(price);
+        checkCount(count);
         this.name = name;
-        this.price = price;
-        this.count = count;
-        this.amount = price * count;
+        this.price = Money.dollars(new BigDecimal(price));
+        this.amount = Money.dollars(new BigDecimal(price * count));
     }
+
+    private void checkAmount(double price) {
+        if (price < 0){
+            throw new IllegalArgumentException("not negative price!");
+        }
+    }
+
+    private void checkCount(int count) {
+        if (count < 0){
+            throw new IllegalArgumentException("not negative count!");
+        }
+    }
+
+
 
     //getters, setters
     public String getName() {
@@ -40,12 +56,13 @@ public abstract class OrderService {
     }
 
     public double getPrice() {
-        return price;
+        return price.getAmount().doubleValue();
     }
 
     public void setPrice(double price) {
-        this.price = price;
-        this.amount = price * count;
+        checkAmount(price);
+        this.price.setAmount(price);
+        this.amount.setAmount(price * count);
     }
 
     public int getCount() {
@@ -53,17 +70,19 @@ public abstract class OrderService {
     }
 
     public void setCount(int count) {
+        checkCount(count);
         this.count = count;
-        this.amount = price * count;
+        this.amount.setAmount(price.getAmount().doubleValue() * count);
     }
 
     public double getAmount() {
-        return amount;
+        return amount.getAmount().doubleValue();
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
-        this.price = amount / count;
+        checkAmount(amount);
+        this.amount.setAmount(amount);
+        this.price.setAmount(amount / count);
     }
 
     //

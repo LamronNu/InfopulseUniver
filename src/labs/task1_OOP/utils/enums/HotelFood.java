@@ -1,4 +1,4 @@
-package labs.task1_OOP.utils;
+package labs.task1_OOP.utils.enums;
 
 public enum HotelFood {
     OB, //(Only Bed), RO (Room Only) или AO (Accommodation Only) подразумевает размещение в номере отеля без питания.

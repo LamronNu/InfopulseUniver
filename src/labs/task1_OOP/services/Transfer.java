@@ -1,6 +1,6 @@
 package labs.task1_OOP.services;
 
-import labs.task1_OOP.utils.TransferType;
+import labs.task1_OOP.utils.enums.TransferType;
 
 public class Transfer extends OrderService {
     private String pointFrom = "A";
@@ -10,33 +10,41 @@ public class Transfer extends OrderService {
 
     //constructors
     public Transfer(String name, double price, String pointFrom, String pointTo) {
-        super(name, price);
-        this.pointFrom = pointFrom;
-        this.pointTo = pointTo;
+       this(name, price, 1, pointFrom, pointTo, 1);
     }
     public Transfer(String name, double price, int count, String pointFrom, String pointTo) {
-        super(name, price, count);
-        this.pointFrom = pointFrom;
-        this.pointTo = pointTo;
+        this(name, price, count, pointFrom, pointTo, 1);
     }
     public Transfer(String name, double price, String pointFrom, String pointTo, int duration) {
-        super(name, price);
-        this.pointFrom = pointFrom;
-        this.pointTo = pointTo;
-        this.duration = duration;
+        this(name, price, 1, pointFrom, pointTo, duration);
     }
     public Transfer(String name, double price, int count, String pointFrom, String pointTo, int duration) {
         super(name, price, count);
+        checkPoint(pointFrom);
+        checkPoint(pointTo);
+        checkDuration(duration);
         this.pointFrom = pointFrom;
         this.pointTo = pointTo;
         this.duration = duration;
     }
+    private void checkPoint(String point) {
+        if (point.length() == 0 ){
+            throw new IllegalArgumentException("not negative duration!");
+        }
+    }
+    private void checkDuration(int duration) {
+        if (duration < 0){
+            throw new IllegalArgumentException("not negative duration!");
+        }
+    }
+
     //getters and setters
     public String getPointFrom() {
         return pointFrom;
     }
 
     public void setPointFrom(String pointFrom) {
+        checkPoint(pointFrom);
         this.pointFrom = pointFrom;
     }
 
@@ -45,6 +53,7 @@ public class Transfer extends OrderService {
     }
 
     public void setPointTo(String pointTo) {
+        checkPoint(pointTo);
         this.pointTo = pointTo;
     }
 
@@ -53,6 +62,7 @@ public class Transfer extends OrderService {
     }
 
     public void setDuration(int duration) {
+        checkDuration(duration);
         this.duration = duration;
     }
 

@@ -61,7 +61,7 @@ class NoneBlockedQueue<T>{
         size++;
     }
 
-    public Object remove(){//remove first
+    public T remove(){//remove first
         if (first == null){
             return null;
         }
@@ -72,6 +72,43 @@ class NoneBlockedQueue<T>{
         return value;
     }
 
+    public T get(int position){
+        if (position < 0 || position > size){
+            return null;
+        }
+        int i = 0;
+        Element<T> current = first;
+        T value;
+        do{
+            value = current.getValue();
+            current = current.getNext();
+        }
+        while (i++ != position);
+        return value;
+    }
+
+    public void add(T value, int position){
+        if (position < 0 || position >= size){
+            add(value);//add to the end
+            return;
+        }
+        if (position == 0){
+            first = new Element(value, first);
+            size++;
+            return;
+        }
+        int pos = 0;
+        Element<T> current = first;
+        Element<T> previous = first;
+        while (pos != position){
+            previous = current;
+            current = current.getNext();
+            pos++;
+        }
+        previous.setNext(new Element(value, current));
+        size++;
+
+    }
     @Override
     public String toString() {
         String result = "[";
@@ -93,6 +130,9 @@ public class QueueTest {
         q.add("CCC");
         q.add("DDD");
         System.out.println(q);
-
+        System.out.println(q.get(0));
+        q.add("000", 0);
+        q.add("111", 1);
+        System.out.println(q);
     }
 }
