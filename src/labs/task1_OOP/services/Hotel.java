@@ -13,4 +13,12 @@ public class Hotel extends OrderService {
     public Hotel(double price, int count) {
         super("Hotel", price, count);
     }
+
+    public String getFoodTypeStr() {
+        return food.toString();
+    }
+
+    public void setFoodType(HotelFood foodType) {
+        this.food = foodType;
+    }
 }

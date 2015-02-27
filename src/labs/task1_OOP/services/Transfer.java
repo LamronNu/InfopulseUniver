@@ -6,6 +6,15 @@ public class Transfer extends OrderService {
     private String pointFrom = "A";
     private String pointTo = "B";
     private int duration = 1; //in hours
+
+    public String getTypeStr() {
+        return type.toString();
+    }
+
+    public void setType(TransferType type) {
+        this.type = type;
+    }
+
     private TransferType type = TransferType.AUTO;
 
     //constructors
