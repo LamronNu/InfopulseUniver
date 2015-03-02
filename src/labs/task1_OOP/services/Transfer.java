@@ -6,6 +6,7 @@ public class Transfer extends OrderService {
     private String pointFrom = "A";
     private String pointTo = "B";
     private int duration = 1; //in hours
+    private TransferType type = TransferType.AUTO;
 
     public String getTypeStr() {
         return type.toString();
@@ -15,11 +16,14 @@ public class Transfer extends OrderService {
         this.type = type;
     }
 
-    private TransferType type = TransferType.AUTO;
+
 
     //constructors
+    public Transfer(double price, String pointFrom, String pointTo) {
+       this("transfer", price, 1, pointFrom, pointTo, 1);
+    }
     public Transfer(String name, double price, String pointFrom, String pointTo) {
-       this(name, price, 1, pointFrom, pointTo, 1);
+        this(name, price, 1, pointFrom, pointTo, 1);
     }
     public Transfer(String name, double price, int count, String pointFrom, String pointTo) {
         this(name, price, count, pointFrom, pointTo, 1);
@@ -75,8 +79,20 @@ public class Transfer extends OrderService {
         this.duration = duration;
     }
 
-
     public void setType(String s) {
         this.type = TransferType.valueOf(s);
+    }
+
+    @Override
+    public String toString() {
+        return "Transfer{" +
+                "type=" + type + "\t" +
+                "pointFrom=" + pointFrom + "\t" +
+                "pointTo=" + pointTo + "\t" +
+                "duration=" + duration + "\n" +
+                "price=" + super.getPrice() + "\t" +
+                "count=" + super.getCount() + "\t" +
+                "amount=" + super.getAmount() +
+                "} ";
     }
 }

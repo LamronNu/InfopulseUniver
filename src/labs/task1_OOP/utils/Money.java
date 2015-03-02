@@ -13,6 +13,10 @@ public class Money {
     private BigDecimal amount;
     private Currency currency;
 
+    public Money() {
+        this(new BigDecimal(0), USD);
+    }
+
     public static Money dollars(BigDecimal amount) {
         return new Money(amount, USD);
     }
@@ -44,9 +48,11 @@ public class Money {
         return getCurrency().getSymbol(locale) + " " + getAmount();
     }
 
-
-
     public void setAmount(double amount) {
         this.amount = new BigDecimal(amount);
+    }
+
+    public void addAmount(double value) {
+        this.amount.add(new BigDecimal(value));
     }
 }
