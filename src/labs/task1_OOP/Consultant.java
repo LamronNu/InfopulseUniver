@@ -32,10 +32,10 @@ public class Consultant {
     public void startWork(){
         scanner = new Scanner(System.in);
         //introducing
-//        System.out.println("Hello! My name is " + name + ".");
-//        System.out.println("I like to travel around the world, so can help you to choose the best tourism route!");
-//        System.out.println("Let's introduce ourselves.So, what is your name?");
-//        clientName = scanner.next();
+        System.out.println("Hello! My name is " + name + ".");
+        System.out.println("I like to travel around the world, so can help you to choose the best tourism route!");
+        System.out.println("Let's introduce ourselves.So, what is your name?");
+        clientName = scanner.next();
 
 
         System.out.println("Hello, " + clientName + "! \nI'm glad to see you! What order you want to create today?");
@@ -350,9 +350,5 @@ public class Consultant {
             choice = -1;
         }
         return choice;
-    }
-
-    public static void main(String[] args) {
-        new Consultant().startWork();
     }
 }
