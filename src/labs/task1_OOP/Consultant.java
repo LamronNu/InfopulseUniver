@@ -31,18 +31,11 @@ public class Consultant {
 
     public void startWork(){
         scanner = new Scanner(System.in);
-        //some variables
-        Hotel hotel;
-        int days;
-        Transfer transfer;
-        String type;
-
         //introducing
         System.out.println("Hello! My name is " + name + ".");
         System.out.println("I like to travel around the world, so can help you to choose the best tourism route!");
         System.out.println("Let's introduce ourselves.So, what is your name?");
         clientName = scanner.next();
-
 
         System.out.println("Hello, " + clientName + "! \nI'm glad to see you! What order you want to create today?");
         int choice = -1;
@@ -84,7 +77,7 @@ public class Consultant {
 
     private void addServices() {
         //variables
-        int choice;
+        int choice = -1;
         Hotel hotel;
         int days;
         Transfer transfer;
