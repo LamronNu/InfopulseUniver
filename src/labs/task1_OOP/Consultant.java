@@ -15,7 +15,7 @@ import static labs.task1_OOP.utils.enums.HotelFood.*;
 
 public class Consultant {
     //private static final Logger log = Logger.getLogger(Consultant.class);
-    private String clientName;
+    private String clientName = "Client";
     private String name;
     private Order order;
     private Scanner scanner;
@@ -32,10 +32,12 @@ public class Consultant {
     public void startWork(){
         scanner = new Scanner(System.in);
         //introducing
-        System.out.println("Hello! My name is " + name + ".");
-        System.out.println("I like to travel around the world, so can help you to choose the best tourism route!");
-        System.out.println("Let's introduce ourselves.So, what is your name?");
-        clientName = scanner.next();
+//        System.out.println("Hello! My name is " + name + ".");
+//        System.out.println("I like to travel around the world, so can help you to choose the best tourism route!");
+//        System.out.println("Let's introduce ourselves.So, what is your name?");
+//        clientName = scanner.next();
+
+
         System.out.println("Hello, " + clientName + "! \nI'm glad to see you! What order you want to create today?");
         int choice = -1;
 
@@ -49,17 +51,19 @@ public class Consultant {
             System.out.println("0. Exit");
 
             choice = getChoice();
-
+            //while (choice != 0) {
             switch(choice) {
                 case 1:
-                    System.out.print("Enter new name: ");
-                    String tempName = scanner.nextLine();
+                    System.out.print("Enter new name (ONE word): ");
+                    String tempName = "";
+                    //while (scanner.hasNext() && scanner.next() != "\n"){
+                        tempName = scanner.next();
+                    //}
                     order.setName(tempName);
                     System.out.println();
                     System.out.println("Successfully rename order to " + tempName + "!");
                     System.out.println();
                 break;
-
                 case 2://2. Add service
                     //variables
                     Hotel hotel;
@@ -68,18 +72,19 @@ public class Consultant {
                     String type = "AVIA";
                     Insurance insurance;
                     //showAllServices() -- all
-                    System.out.println("1. Add hotel (Standart -- $100 per day)");
-                    System.out.println("2. Add hotel (Econom -- $70 per day)");
-                    System.out.println("3. Add avia-transfer (business class -- $250, Kyiv -- London)");
-                    System.out.println("4. Add avia-transfer (econom class -- $150, Kyiv -- London)");
-                    System.out.println("5. Add avia-transfer (choose cities)");
-                    System.out.println("6. Add transfer (choose cities and type)");
-                    System.out.println("7. Add Insurance");
-                    System.out.println("\nThere are all our services.\n" +
-                            "Please, choose one of them (or enter 9 for return to main menu)");
-                    choice = getChoice();
                     //System.out.println("you choose " + choice);
                     while (choice != 9) {
+                        System.out.println("1. Add hotel (Standart -- $100 per day)");
+                        System.out.println("2. Add hotel (Econom -- $70 per day)");
+                        System.out.println("3. Add avia-transfer (business class -- $250, Kyiv -- London)");
+                        System.out.println("4. Add avia-transfer (econom class -- $150, Kyiv -- London)");
+                        System.out.println("5. Add avia-transfer (choose cities)");
+                        System.out.println("6. Add transfer (choose cities and type)");
+                        System.out.println("7. Add Insurance");
+                        System.out.println("\nThere are all our services.\n" +
+                                "Please, choose one of them (or enter 9 for return to main menu)");
+                        choice = getChoice();
+
                         switch (choice) {
                             case 1://Add hotel (Standart -- $100 per day
                             case 2://Add hotel (Econom -- $70 per day)");
@@ -131,15 +136,15 @@ public class Consultant {
                                 break;
                             case 6: //System.out.println("5. Add avia-transfer (choose cities)");
                                 System.out.println("enter type (AUTO, AVIA, BUS, TRAIN, SHIP): ");
-                                type = scanner.nextLine();
+                                type = scanner.next();
                             case 5: //System.out.println("6. Add transfer (choose cities and type)");
                                 String pointFrom;
                                 String pointTo;
                                 System.out.print("enter pointFrom: ");
-                                pointFrom = scanner.nextLine();
+                                pointFrom = scanner.next();
                                 System.out.println();
                                 System.out.print("enter pointTo: ");
-                                pointTo = scanner.nextLine();
+                                pointTo = scanner.next();
                                 try {
                                     transfer = new Transfer(type + "-transfer", new Random().nextInt(300), pointFrom, pointTo);
                                     transfer.setType(type);
@@ -165,6 +170,9 @@ public class Consultant {
                             case 9:
                                 break;
                         }
+                        System.out.println("Add another service? 1-yes/2-no");
+                        choice = getChoice();
+                        choice = choice != 2 ? -1 : 9;
                     }
                     break;
 
@@ -178,6 +186,7 @@ public class Consultant {
                     choice = getChoice();
                     if (choice <= 0) break;
 //                    System.out.println("you choose " + choice);
+                    choice--;
                     OrderService editService;
                     try {
                         editService = order.getService(choice);
@@ -187,7 +196,7 @@ public class Consultant {
                     }
                     if (!(editService instanceof Hotel)
                             &&!(editService instanceof Transfer)){
-                        System.out.println("You can edit only hotel and transfer, not " + editService.getClass().getCanonicalName() + "!");
+                        System.out.println("You can edit only hotel and transfer, not " + editService.getClass().getSimpleName() + "!");
                         break;
                     }
                     System.out.println(editService);
@@ -207,13 +216,13 @@ public class Consultant {
                             System.out.println("2. Change food to OB (Only Bed), " + formatDiff(diff));
                         }
                         if (food != BB) {
-                            System.out.println("3. Change food to BB (Bed and Breakfast), " + formatDiff(diff));
+                            System.out.println("3. Change food to BB (Bed and Breakfast), " + formatDiff(diff+15));
                         }
-                        if (food != BB) {
-                            System.out.println("4. Change food to HB (Half Board), " + formatDiff(diff));
+                        if (food != HB) {
+                            System.out.println("4. Change food to HB (Half Board), " + formatDiff(diff+30));
                         }
                         if (food != FB) {
-                            System.out.println("5. Change food to FB (Full Board), " + formatDiff(diff));
+                            System.out.println("5. Change food to FB (Full Board), " + formatDiff(diff+50));
                         }
                         choice = getChoice();
                         switch (choice){
@@ -255,8 +264,8 @@ public class Consultant {
                         System.out.println("3. Point to");
                         choice = getChoice();
                         System.out.print("enter new value: ");
-                        type = scanner.nextLine();
-                        System.out.println();
+                        type = scanner.next();
+                        //System.out.println();
                         try {
                             switch (choice){
                                 case 1:     transfer.setType(type);         break;

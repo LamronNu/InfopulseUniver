@@ -86,12 +86,12 @@ public class Transfer extends OrderService {
     @Override
     public String toString() {
         return "Transfer{" +
-                "type=" + type + "\t" +
-                "pointFrom=" + pointFrom + "\t" +
-                "pointTo=" + pointTo + "\t" +
-                "duration=" + duration + "\n" +
-                "price=" + super.getPrice() + "\t" +
-                "count=" + super.getCount() + "\t" +
+                "type=" + type + ",\t" +
+                "pointFrom=" + pointFrom + ",\t" +
+                "pointTo=" + pointTo + ",\t" +
+                "duration=" + duration + ",\t" +
+                "price=" + super.getPrice() + ",\t" +
+                "count=" + super.getCount() + ",\t" +
                 "amount=" + super.getAmount() +
                 "} ";
     }

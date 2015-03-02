@@ -81,7 +81,7 @@ public class Order {
         String result = "";
         int count = 1;
         for (OrderService service : services){
-            result += count++ + ". " + service;
+            result += ">" + count++ + ". " + service + "\n";
         }
         return result;
     }

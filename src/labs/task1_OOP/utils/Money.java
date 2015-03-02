@@ -53,6 +53,6 @@ public class Money {
     }
 
     public void addAmount(double value) {
-        this.amount.add(new BigDecimal(value));
+        this.amount = this.amount.add(new BigDecimal(value));
     }
 }

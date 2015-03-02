@@ -34,13 +34,15 @@ public abstract class OrderService {
 
     private void checkAmount(double price) {
         if (price < 0){
-            throw new IllegalArgumentException("not negative price!");
+            throw new IllegalArgumentException("not negative price (" +
+                    + price + ")!");
         }
     }
 
     private void checkCount(int count) {
         if (count <= 0){
-            throw new IllegalArgumentException("not negative or 0 count!");
+            throw new IllegalArgumentException("not negative or 0 count(" +
+                    + count + ")!");
         }
     }
 
@@ -65,7 +67,7 @@ public abstract class OrderService {
         this.amount.setAmount(price * count);
     }
     public void addPrice(double value) {
-        checkAmount(value);
+        checkAmount(price.getAmount().doubleValue() + value);
         this.price.addAmount(value);
         this.amount.addAmount(value * count);
     }

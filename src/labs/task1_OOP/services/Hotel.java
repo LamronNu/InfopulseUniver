@@ -4,8 +4,7 @@ import labs.task1_OOP.utils.enums.HotelFood;
 
 public class Hotel extends OrderService {
     private String place;
-    private HotelFood food = HotelFood.OB;
-    private HotelFood foodType;
+    private HotelFood foodType = HotelFood.OB;
 
     public Hotel(double price) {
         this(price, 1);
@@ -16,22 +15,22 @@ public class Hotel extends OrderService {
     }
 
     public String getFoodTypeStr() {
-        return food.toString();
+        return foodType.toString();
     }
 
     public void setFoodType(HotelFood foodType) {
-        this.food = foodType;
+        this.foodType = foodType;
     }
     public void setFoodType(String foodType) {
-        this.food = HotelFood.valueOf(foodType);
+        this.foodType = HotelFood.valueOf(foodType);
     }
 
     @Override
     public String toString() {
         return "Hotel{" +
-                "food=" + food + "\t" +
-                "price=" + super.getPrice() + "\t" +
-                "days=" + super.getCount() + "\t" +
+                "food=" + foodType + ",\t" +
+                "price=" + super.getPrice() + ",\t" +
+                "days=" + super.getCount() + ",\t" +
                 "amount=" + super.getAmount() +
                 "} ";
     }
