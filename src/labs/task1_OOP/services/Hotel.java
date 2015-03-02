@@ -21,4 +21,8 @@ public class Hotel extends OrderService {
     public void setFoodType(HotelFood foodType) {
         this.food = foodType;
     }
+    public void setFoodType(String foodType) {
+        this.food = HotelFood.valueOf(foodType);
+    }
+
 }

@@ -1,3 +1,7 @@
 >>	Basic order
 >	Hotel	250.0	1	H	OB	
 >	avia	100.0	1	T		AVIA	Kyiv	London	
+1
+>>	Basic order
+>	Hotel	250.0	1	H	OB	
+>	avia	100.0	1	T		AVIA	Kyiv	London	

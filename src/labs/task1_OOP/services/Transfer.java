@@ -76,4 +76,7 @@ public class Transfer extends OrderService {
     }
 
 
+    public void setType(String s) {
+        this.type = TransferType.valueOf(s);
+    }
 }
