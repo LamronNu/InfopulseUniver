@@ -1,5 +1,8 @@
 package labs.task2_Strings;
 
+import labs.task2_Strings.models.Lexeme;
+import labs.task2_Strings.models.Symbol;
+
 import java.util.Comparator;
 
 //Отсортировать слова в тексте по убыванию количества вхождений
@@ -20,7 +23,7 @@ public class Lexeme_13_Comparator
 
     @Override
     public int compare(Lexeme o1, Lexeme o2) {
-        int diff = o2.getSymbolCount(symbol) - o1.getSymbolCount(symbol);//по убыванию
+        int diff = o2.getSymbolCount(symbol) - o1.getSymbolCount(symbol);//desc
         if (diff != 0){
             return diff;
         }else{

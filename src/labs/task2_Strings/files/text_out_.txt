@@ -1,0 +1,12 @@
+Sorted words by number of symbol [o] desc
+[Following, good, look, looking, Cornwall, Council, Educator, Focus, Go, How, Project, about, another,
+before, comments, comments, complete, country, course, course, discussion, do, do, educators, enjoy,
+enjoyed, environment, environment, environmental, forward, from, hope, hope, move, moving, of, of, of,
+on, on, on, previous, previous, problems, protect, protect, question, some, through, to, to, to, to, to,
+to, to, to, to, to, video, word, work, work, you, you, you, you, you, you, you, you, your, your, your, 1,
+4, 5, British, British, Cavey, Chris, Eden, Here’s, I, If, In, Language, Lead, That’s, This, We, Week, Week,
+Week, We’ll, We’re, a, a, a, an, and, and, and, answers, any, are, as, ask, at, at, at, by, can, catch,
+challenges, didn’t, easily, endangered, facing, find, find, get, great, in, in, interest, interesting,
+is, it, it, its, link, literature, little, meet, reading, renewed, species, start, started, starting,
+that, the, the, the, the, the, the, the, the, the, the, the, their, then, this, time, up, way, week,
+week, week, weeks, weeks, we’ll, we’ll, what, —, ‘green’]

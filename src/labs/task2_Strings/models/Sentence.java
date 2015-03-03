@@ -1,17 +1,16 @@
-package labs.task2_Strings;
+package labs.task2_Strings.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class Sentence extends Lexeme{
     public String value;
-    private List<Lexeme> lexemes = new ArrayList<Lexeme>();
-    private List<Interval> intervals = new ArrayList<Interval>();
-    private List<Word> words = new ArrayList<Word>();
+    private List<Lexeme> lexemes = new ArrayList<>();
+    private List<Interval> intervals = new ArrayList<>();
+    private List<Word> words = new ArrayList<>();
 
     //constructor
     public Sentence(String text) {
-        //lexemes = new ArrayList<Lexeme>();
         this.value = text;
         parseText(text);//fill lexemes
     }
@@ -72,19 +71,17 @@ class Sentence extends Lexeme{
     }
 
     private String getSymbolsInfo(List<Lexeme> lexemes) {
-        String result = "      Symbols: ";
+        String result1 = "      Symbols: ";
+        String result2 = "\n" + "Unigue symbols: " ;
         for (Lexeme lexeme : lexemes){
-            result += lexeme.getSymbols();
+            result1 += lexeme.getSymbols();
+            result2 += lexeme.getUniqueSymbols();
         }
-        result += "\n" + "Unigue symbols: " ;
-        for (Lexeme lexeme : lexemes){
-            result += lexeme.getUniqueSymbols();
-        }
-        return result;
+        return result1 + result2;
     }
 
 
     public List<Word> getWords() {
-        return new ArrayList<Word>(words);
+        return new ArrayList<>(words);
     }
 }

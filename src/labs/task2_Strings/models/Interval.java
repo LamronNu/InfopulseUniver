@@ -1,4 +1,4 @@
-package labs.task2_Strings;
+package labs.task2_Strings.models;
 
 class Interval extends Lexeme{
 

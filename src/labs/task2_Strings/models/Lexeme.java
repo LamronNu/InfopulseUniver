@@ -1,14 +1,14 @@
-package labs.task2_Strings;
+package labs.task2_Strings.models;
 
 import java.util.*;
 
-abstract class Lexeme extends Symbol
+public abstract class Lexeme extends Symbol
         implements Comparable<Lexeme> {
 
     protected String value;
     protected int length;
-    protected List<Symbol> symbols = new ArrayList();
-    protected Set<Symbol> uniqueSymbols = new HashSet();
+    protected List<Symbol> symbols = new ArrayList<>();
+    protected Set<Symbol> uniqueSymbols = new HashSet<>();
 
     //constructors
     public Lexeme() {
@@ -19,13 +19,9 @@ abstract class Lexeme extends Symbol
     }
 
     private void parseText(String text) {
-//        symbols = new ArrayList(Arrays.asList(s.toCharArray()));
-//        uniqueSymbols = new HashSet<Symbol>(Arrays.asList(s.toCharArray()));
-        //goal: break on symbols
         for (int i = 0; i < text.length(); i++) {
-            addChar(text.charAt(i));
+            addChar(text.charAt(i));//goal: break on symbols
         }
-
     }
 
     //getters, setters
@@ -34,11 +30,11 @@ abstract class Lexeme extends Symbol
     }
 
     public List<Symbol> getSymbols() {
-        return new ArrayList<Symbol>(symbols);
+        return new ArrayList<>(symbols);
     }
 
     public Set<Symbol> getUniqueSymbols() {
-        return new HashSet<Symbol>(uniqueSymbols);
+        return new HashSet<>(uniqueSymbols);
     }
 
     //overrides
@@ -61,11 +57,8 @@ abstract class Lexeme extends Symbol
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Lexeme lexeme = (Lexeme) o;
-
         if (symbols != null ? !symbols.equals(lexeme.symbols) : lexeme.symbols != null) return false;
-
         return true;
     }
 
@@ -77,17 +70,12 @@ abstract class Lexeme extends Symbol
     @Override
     public int compareTo(Lexeme o) {
         if (getClass() != o.getClass()){
-            //???
-            throw new ClassCastException("cannot compare different classes!");
+            throw new ClassCastException("cannot compare different classes!");//???
         }
-//        if (this.equals(o)) {
-//            return 0;
-//        }
         if (o == null || this == null) {
             return o == null ? 1 : -1; //Object > null
         }
-        Lexeme lexeme = (Lexeme) o;
-        return getText().compareTo(o.getText());
+        return getText().compareTo(o.getText());//by Alphabet
 
     }
 

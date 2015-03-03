@@ -1,25 +1,23 @@
-package labs.task2_Strings;
+package labs.task2_Strings.models;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class Word extends Lexeme     {
+public class Word extends Lexeme     {
     //private String value;
     //public int length;//??
-    private List<Symbol> letters = new ArrayList<Symbol>();
-    private Set<Symbol> uniqueLetters = new HashSet<Symbol>();
-    private List<Symbol> digits = new ArrayList<Symbol>();
-    private Set<Symbol> uniqueDigits = new HashSet<Symbol>();
+    private List<Symbol> letters = new ArrayList<>();
+    private Set<Symbol> uniqueLetters = new HashSet<>();
+    private List<Symbol> digits = new ArrayList<>();
+    private Set<Symbol> uniqueDigits = new HashSet<>();
 
     //constructors
     public Word() {
     }
     public Word(String str)   {
-        //this.value = str;
         parseText(str);
-
     }
 
     private void parseText(String text) {
