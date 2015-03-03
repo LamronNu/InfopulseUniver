@@ -11,9 +11,9 @@ public class Insurance extends OrderService {
     @Override
     public String toString() {
         return "Insurance{" +
-                "price=" + super.getPrice() + "\t" +
-                "count=" + super.getCount() + "\t" +
-                "amount=" + super.getAmount() +
+                " price=" + super.getPrice() + "\t" +
+                " count=" + super.getCount() + "\t" +
+                " amount=" + super.getAmount() +
                 "} ";
     }
 }

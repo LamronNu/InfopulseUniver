@@ -1,23 +1,15 @@
 package labs.task1_OOP.services;
 
 import labs.task1_OOP.utils.Money;
-
 import java.math.BigDecimal;
 
 public abstract class OrderService {
 
     //fields
     private String name = "Basic service";
-    //private boolean facultative = false;
     private int count = 1;
     private Money price;
     private Money amount;
-
-//    private Currency currency = Currency.getInstance(Locale.getDefault());
-//    private Currency basicCurrency = Currency.getInstance("UAN");
-
-//    private double basicPrice;
-//    private double basicAmount;
 
     //constructors
     public OrderService(String name, double price) {
@@ -47,7 +39,6 @@ public abstract class OrderService {
     }
 
 
-
     //getters, setters
     public String getName() {
         return name;
@@ -66,11 +57,13 @@ public abstract class OrderService {
         this.price.setAmount(price);
         this.amount.setAmount(price * count);
     }
+
     public void addPrice(double value) {
         checkAmount(price.getAmount().doubleValue() + value);
         this.price.addAmount(value);
         this.amount.addAmount(value * count);
     }
+
     public int getCount() {
         return count;
     }
@@ -94,7 +87,7 @@ public abstract class OrderService {
     //
 
     @Override
-    public String toString() { //todo
+    public String toString() {
         return "OrderService{" +
                 "name='" + name + '\'' +
                 ", count=" + count +

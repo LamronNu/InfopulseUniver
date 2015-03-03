@@ -8,16 +8,6 @@ public class Transfer extends OrderService {
     private int duration = 1; //in hours
     private TransferType type = TransferType.AUTO;
 
-    public String getTypeStr() {
-        return type.toString();
-    }
-
-    public void setType(TransferType type) {
-        this.type = type;
-    }
-
-
-
     //constructors
     public Transfer(double price, String pointFrom, String pointTo) {
        this("transfer", price, 1, pointFrom, pointTo, 1);
@@ -40,11 +30,14 @@ public class Transfer extends OrderService {
         this.pointTo = pointTo;
         this.duration = duration;
     }
+
+    //checkers
     private void checkPoint(String point) {
         if (point.length() == 0 ){
-            throw new IllegalArgumentException("not negative duration!");
+            throw new IllegalArgumentException("not empty point!");
         }
     }
+
     private void checkDuration(int duration) {
         if (duration < 0){
             throw new IllegalArgumentException("not negative duration!");
@@ -83,16 +76,23 @@ public class Transfer extends OrderService {
         this.type = TransferType.valueOf(s);
     }
 
+    public String getTypeStr() {
+        return type.toString();
+    }
+
+    public void setType(TransferType type) {
+        this.type = type;
+    }
     @Override
     public String toString() {
         return "Transfer{" +
-                "type=" + type + ",\t" +
-                "pointFrom=" + pointFrom + ",\t" +
-                "pointTo=" + pointTo + ",\t" +
-                "duration=" + duration + ",\t" +
-                "price=" + super.getPrice() + ",\t" +
-                "count=" + super.getCount() + ",\t" +
-                "amount=" + super.getAmount() +
+                " type=" + type + ",\t" +
+                " pointFrom=" + pointFrom + ",\t" +
+                " pointTo=" + pointTo + ",\t" +
+                " duration=" + duration + ",\t" +
+                " price=" + super.getPrice() + ",\t" +
+                " count=" + super.getCount() + ",\t" +
+                " amount=" + super.getAmount() +
                 "} ";
     }
 }

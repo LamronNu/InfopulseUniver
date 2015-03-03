@@ -21,21 +21,23 @@ public class Hotel extends OrderService {
     public void setFoodType(HotelFood foodType) {
         this.foodType = foodType;
     }
+
     public void setFoodType(String foodType) {
         this.foodType = HotelFood.valueOf(foodType);
-    }
-
-    @Override
-    public String toString() {
-        return "Hotel{" +
-                "food=" + foodType + ",\t" +
-                "price=" + super.getPrice() + ",\t" +
-                "days=" + super.getCount() + ",\t" +
-                "amount=" + super.getAmount() +
-                "} ";
     }
 
     public HotelFood getFoodType() {
         return foodType;
     }
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                " food=" + foodType + ",\t" +
+                " price=" + super.getPrice() + ",\t" +
+                " days=" + super.getCount() + ",\t" +
+                " amount=" + super.getAmount() +
+                "} ";
+    }
+
+
 }

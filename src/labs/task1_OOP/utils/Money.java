@@ -21,11 +21,11 @@ public class Money {
         return new Money(amount, USD);
     }
 
-    Money(BigDecimal amount, Currency currency) {
+    public Money(BigDecimal amount, Currency currency) {
         this(amount, currency, DEFAULT_ROUNDING);
     }
 
-    Money(BigDecimal amount, Currency currency, RoundingMode rounding) {
+    public Money(BigDecimal amount, Currency currency, RoundingMode rounding) {
         this.amount = amount;
         this.currency = currency;
         this.amount = amount.setScale(currency.getDefaultFractionDigits(), rounding);
@@ -39,6 +39,14 @@ public class Money {
         return currency;
     }
 
+    public void setAmount(double amount) {
+        this.amount = new BigDecimal(amount);
+    }
+
+    public void addAmount(double value) {
+        this.amount = this.amount.add(new BigDecimal(value));
+    }
+
     @Override
     public String toString() {
         return getCurrency().getSymbol() + " " + getAmount();
@@ -48,11 +56,4 @@ public class Money {
         return getCurrency().getSymbol(locale) + " " + getAmount();
     }
 
-    public void setAmount(double amount) {
-        this.amount = new BigDecimal(amount);
-    }
-
-    public void addAmount(double value) {
-        this.amount = this.amount.add(new BigDecimal(value));
-    }
 }
