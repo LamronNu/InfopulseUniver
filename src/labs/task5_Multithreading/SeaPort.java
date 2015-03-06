@@ -89,12 +89,14 @@ class Ship extends Thread{
     public void run() {
         while(!interrupted()){
             try {
-                synchronized (this) {
-                    while (shipContainers.size() == 0) {
-                        if (type == ShipType.UNLOAD_TO_SHIP) break;
-                        System.out.println(this + " is empty!");
-                        //notify();
-                        wait();
+                if (type != ShipType.UNLOAD_TO_SHIP) {
+                    synchronized (this) {
+                        while (shipContainers.size() == 0) {
+
+                            System.out.println(this + " is empty!");
+                            //notify();
+                            wait();
+                        }
                     }
                 }
                 switch (type){
@@ -107,19 +109,19 @@ class Ship extends Thread{
                         //sleep(500);
                         break;
                     default:
-
-                            seaPort.loadToPort();
-
+                        seaPort.loadToPort();
                         //sleep(200);
                         seaPort.unloadToShip();
                 }
                 sleep(200);
-                synchronized (this) {
-                    while (shipContainers.size() >= shipMaxSize) {
-                        if (type == ShipType.LOAD_TO_PORT) break;
-                        System.out.println(this + " is full!");
-                        //notify();
-                        wait();
+                if (type != ShipType.LOAD_TO_PORT) {
+                    synchronized (this) {
+                        while (shipContainers.size() >= shipMaxSize) {
+
+                            System.out.println(this + " is full!");
+                            //notify();
+                            wait();
+                        }
                     }
                 }
 
