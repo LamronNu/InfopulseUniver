@@ -122,7 +122,7 @@ class SkipList<T extends Comparable<T>>{
 
         //insert node after previous node
         previousNode.next = insertNode;
-        insertNode.next = findNode;
+        insertNode.next = previousNode != findNode ? findNode : null;
         nodeSize++;
 
         //insert indexes if need
@@ -136,16 +136,18 @@ class SkipList<T extends Comparable<T>>{
             if (levels != 1){
                 previousIndex = left.poll();
                 currentIndex = right.poll();
-                needIndex = random.nextBoolean();//??
-                currentLevel++;
             }
+            needIndex = random.nextBoolean();//??
+            currentLevel++;
         }
 
         //on top -- if need new level?
         if (needIndex && currentLevel > levels){
             //find "end"
             Index<T> endIndex = downIndex;//.right;
-            while ((endIndex = endIndex.right) != null);
+            while (endIndex.right != null){
+                endIndex = endIndex.right;
+            }
             endIndex = new Index<T>(endIndex.node,endIndex, null, currentLevel);
             //inserted index -- to "middle"
             Index<T> insertIndex = new Index<T>(insertNode,downIndex, endIndex, currentLevel);
@@ -177,10 +179,10 @@ class SkipList<T extends Comparable<T>>{
                     .append(level)
                     .append(": [");
 
-            while (rightIndex.node != null){
+            while (rightIndex != null){
                 result.append(rightIndex.node.value);
                 rightIndex = rightIndex.right;
-                result.append(rightIndex.node == null ? "" : ", ");
+                result.append(rightIndex == null ? "" : ", ");
             }
             result.append("]");
             rightIndex = leftIndex.down;
@@ -196,7 +198,7 @@ public class SkipListTest {
     public static void main(String[] args) {
         SkipList<Integer> skipList = new SkipList<>();
         Random random = new Random();
-        for (int i = 0; i < 20; i++){
+        for (int i = 0; i < 3; i++){
             skipList.add(random.nextInt(20));
         }
         System.out.println(skipList);
