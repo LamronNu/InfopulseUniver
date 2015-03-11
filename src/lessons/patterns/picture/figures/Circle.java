@@ -6,7 +6,7 @@ public class Circle extends Figure {
     private double radius;
     private Point point;
 
-    Circle() {
+    public Circle() {
     }
 
     public Circle(Point center, Point point) {
