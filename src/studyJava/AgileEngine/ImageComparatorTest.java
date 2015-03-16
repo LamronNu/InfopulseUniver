@@ -9,12 +9,12 @@ import java.io.IOException;
 
 public class ImageComparatorTest {
     private static final int DIFFERENCE = 255 / 10; //10%
-    private static final String IMAGE_1_TEST_1 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\test_1\\image_1.png";
-    private static final String IMAGE_2_TEST_1 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\test_1\\image_2.png";
+    private static final String IMAGE_1_TEST_1 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\image_1.png";
+    private static final String IMAGE_2_TEST_1 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\image_2.png";
     private static final String RESULT_TEST_1 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\output\\test_1.png";
     private static final String RESULT_TEST_2 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\output\\test_2.png";
-    private static final String IMAGE_1_TEST_2 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\test_2\\Screenshot_1.png";
-    private static final String IMAGE_2_TEST_2 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\test_2\\Screenshot_2.png";
+    private static final String IMAGE_1_TEST_2 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\Screenshot_1.png";
+    private static final String IMAGE_2_TEST_2 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\input\\Screenshot_2.png";
     private static final String RESULT_TEST_3 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\output\\test_3.png";
     private static final String RESULT_TEST_4 = "C:\\Users\\Olga\\IdeaProjects\\InfopulseUniver\\src\\studyJava\\AgileEngine\\output\\test_4.png";
 
@@ -28,7 +28,6 @@ public class ImageComparatorTest {
             compareImages(IMAGE_1_TEST_2, IMAGE_1_TEST_2, RESULT_TEST_3);
             //test 2 -- must be not egual -- word "test"
             compareImages(IMAGE_1_TEST_2, IMAGE_2_TEST_2, RESULT_TEST_4);
-
         }
         catch (IOException e) {
             e.printStackTrace();
