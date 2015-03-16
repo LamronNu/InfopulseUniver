@@ -26,7 +26,7 @@ public class ImageComparatorTest {
             compareImages(IMAGE_1_TEST_1, IMAGE_2_TEST_1, RESULT_TEST_2);
             //test 1 -- must be egual
             compareImages(IMAGE_1_TEST_2, IMAGE_1_TEST_2, RESULT_TEST_3);
-            //test 2 -- must be not egual -- word "test"
+            //test 2 -- must be not egual
             compareImages(IMAGE_1_TEST_2, IMAGE_2_TEST_2, RESULT_TEST_4);
         }
         catch (IOException e) {
@@ -62,10 +62,9 @@ public class ImageComparatorTest {
                     resultDataBuffer.setElem(i, 0xff);//white -- by default
                 }
             }
+        }  else {
+            isSame = false;
         }
-//        else {
-//            isSame = false;
-//        }
         System.out.println(isSame ? "Both Images are the same" : "Images have differences");
         ImageIO.write(resultImage, "png", new File(Image_result));
     }
