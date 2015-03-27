@@ -1,0 +1,10 @@
+--------------------------
+get text from: text_2.txt
+-----WordsHistogram-------
+people=>2
+of=>3
+custom=>2
+and=>3
+the=>2
+Our=>3
+

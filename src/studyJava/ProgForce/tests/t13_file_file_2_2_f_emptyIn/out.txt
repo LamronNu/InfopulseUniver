@@ -1,0 +1,2 @@
+WordsHistogram (minWordSize=2, minWordsCount=2, caseSensitive=false).
+

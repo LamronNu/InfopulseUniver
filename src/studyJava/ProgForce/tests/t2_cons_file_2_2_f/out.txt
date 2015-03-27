@@ -1,0 +1,12 @@
+WordsHistogram (minWordSize=2, minWordsCount=2, caseSensitive=false).
+
+--------------------------
+get text from: console
+-----WordsHistogram-------
+people=>2
+of=>3
+custom=>2
+and=>3
+the=>2
+Our=>3
+

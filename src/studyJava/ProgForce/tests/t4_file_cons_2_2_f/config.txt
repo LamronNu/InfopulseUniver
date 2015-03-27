@@ -1,0 +1,5 @@
+typeOfInput : file>>src\studyJava\ProgForce\tests\t4_file_cons_2_2_f\in.txt
+typeOfOutput : console
+minWordSize : 2
+minWordsCount : 2
+caseSensitive : false

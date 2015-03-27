@@ -1,0 +1,5 @@
+typeOfInput : console
+typeOfOutput : folder>>src\studyJava\ProgForce\tests\t3_cons_folder_2_2_f\out
+minWordSize : 2
+minWordsCount : 2
+caseSensitive : false

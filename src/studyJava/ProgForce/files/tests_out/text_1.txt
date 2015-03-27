@@ -1,0 +1,5 @@
+--------------------------
+get text from: text_1.txt
+-----WordsHistogram-------
+text=>2
+

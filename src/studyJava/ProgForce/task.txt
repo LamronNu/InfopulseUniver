@@ -1,0 +1,56 @@
+Word frequency histogram.
+
+Use any language you choose to create an app that will get a text file as input and provide
+its word histogram as output. – display only words that appear more then 1 time in the text.
+
+The program will be tested with the following text:
+
+“Progforce, more than anything else, is a league of extraordinary talent - sought, refined,
+and dedicated to providing the most impeccable intelligence and service. Our team of professional
+software developers are specially chosen through a process of selection based not only on training,
+but conception and creative application. Our people don't just plug in the numbers. Our people
+create custom solutions for custom needs.”
+
+The output should be:
+
+of => 3
+and => 3
+our => 3
+custom => 2
+people => 2
+the => 2
+
+rules:
+
+1) the process should be case insensitive (we don’t care about Capital or Lowercase).
+2) A word should be at least 2 characters long.
+3) Ignore special characters like “.,:” etc. one exception of this rule is words like: don’t.
+
+Interface:
+
+Here you have the freedom to show off your creativity. The bare minimum is to write a program that will read the input from a plain text file, and print the output the the screen.
+
+
+Optional (you don’t have to do this part – do it for the fun ... ):
+
+Create a web page where a user can upload a text file , or copy/paste text to an input field –  after submitting the , the next page will have the results.
+Show a bar graph showing the results using Google charts
+Get as input a url, let the program make an http request to this url , give as output the word count of the text/html you’ve got as response
+Add your own creative features
+
+
+Deliveries:
+
+Send us :
+
+ the source code with a short explanation.
+ Screenshots or a screencast of the program execution uploaded to Youtube or Google drive (or any other similar service).
+Optional:
+
+       Send a url with the working app.
+
+Bonus challenge:
+
+       Use one of the following frameworks to create the interface:  http://www.meteor.com  or  http://www.famo.us
+
+       You don't have to do it and its totally fine if you do it any other way,

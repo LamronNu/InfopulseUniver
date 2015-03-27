@@ -1,0 +1,5 @@
+typeOfInput : folder>>src\studyJava\ProgForce\files\tests
+typeOfOutput : folder>>src\studyJava\ProgForce\files\tests
+minWordSize : 2
+minWordsCount : 2
+caseSensitive : false

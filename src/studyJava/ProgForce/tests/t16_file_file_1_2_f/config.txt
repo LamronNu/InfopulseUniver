@@ -1,0 +1,5 @@
+typeOfInput : file>>src\studyJava\ProgForce\tests\t16_file_file_1_2_f\in.txt
+typeOfOutput : file>>src\studyJava\ProgForce\tests\t16_file_file_1_2_f\out.txt
+minWordSize : 1
+minWordsCount : 2
+caseSensitive : false

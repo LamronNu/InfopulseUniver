@@ -1,0 +1,10 @@
+--------------------------
+get text from: src\studyJava\ProgForce\tests\t6_file_folder_2_2_f\in.txt
+-----WordsHistogram-------
+people=>2
+of=>3
+custom=>2
+and=>3
+the=>2
+Our=>3
+

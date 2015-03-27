@@ -1,0 +1,5 @@
+typeOfInput : folder>>src\studyJava\ProgForce\tests\t15_folder_folder_2_2_f_sameFolders\folder
+typeOfOutput : folder>>src\studyJava\ProgForce\tests\t15_folder_folder_2_2_f_sameFolders\folder
+minWordSize : 2
+minWordsCount : 2
+caseSensitive : false

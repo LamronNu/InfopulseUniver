@@ -1,0 +1,11 @@
+WordsHistogram (minWordSize=2, minWordsCount=2:
+get text from: src\studyJava\ProgForce\files\text_in.txt
+-----WordsHistogram-------
+and=>3
+of=>3
+custom=>2
+the=>2
+people=>2
+Our=>3
+
+--------------------------

@@ -1,0 +1,5 @@
+typeOfInput : console
+typeOfOutput : console
+minWordSize : 2
+minWordsCount : 2
+caseSensitive : false

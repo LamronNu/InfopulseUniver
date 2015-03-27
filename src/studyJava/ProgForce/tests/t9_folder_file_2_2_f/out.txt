@@ -1,0 +1,29 @@
+WordsHistogram (minWordSize=2, minWordsCount=2, caseSensitive=false).
+
+--------------------------
+get text from: text_3.txt
+-----WordsHistogram-------
+people=>2
+of=>3
+custom=>2
+and=>3
+don't=>8
+the=>2
+Our=>3
+
+--------------------------
+get text from: text_1.txt
+-----WordsHistogram-------
+text=>2
+123=>2
+
+--------------------------
+get text from: text_2.txt
+-----WordsHistogram-------
+people=>2
+of=>3
+custom=>2
+and=>3
+the=>2
+Our=>3
+

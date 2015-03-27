@@ -1,0 +1,10 @@
+WordsHistogram (minWordSize=2, minWordsCount=2, caseSensitive=true).
+
+--------------------------
+get text from: src\studyJava\ProgForce\tests\t12_file_file_2_2_t\in.txt
+-----WordsHistogram-------
+people=>2
+of=>3
+Our=>3
+the=>2
+
