@@ -150,7 +150,7 @@ public class WordHistogramDemoTest {
          * test 9
          * ----
          * typeOfInput : folder>>src\studyJava\ProgForce\tests\t9_folder_file_2_2_f\in
-         * typeOfOutput : folder>>src\studyJava\ProgForce\tests\t9_folder_file_2_2_f\out.txt
+         * typeOfOutput : file>>src\studyJava\ProgForce\tests\t9_folder_file_2_2_f\out.txt
          * minWordSize : 2
          * minWordsCount : 2
          * caseSensitive : false
