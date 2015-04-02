@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients>
+<client id="a001">
+    <firstname>Vasya</firstname>
+    <lastname>Pupkin</lastname>
+    <placeOfBirth>
+        <country>Ukraine</country>
+        <city>Odessa</city>
+    </placeOfBirth>
+</client>
+    <client id="a002">
+        <firstname>Nicola</firstname>
+        <lastname>Petrov</lastname>
+        <placeOfBirth>
+            <country>Ukraine</country>
+            <city>Kyiv</city>
+        </placeOfBirth>
+    </client>
+</clients>

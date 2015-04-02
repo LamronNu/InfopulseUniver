@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:tparams="http://aaa.com/bbb"
+         xsi:schemaLocation="http://aaa.com/bbb F:\infopulse\skiplist\lessons\xml\xcd\devices.xsd">
+    <device id="a001">
+        <name>motherboard</name>
+        <origin>USA</origin>
+        <price>700</price>
+        <type>
+            <tparams:peripheral>false</tparams:peripheral>
+            <tparams:power>30</tparams:power>
+            <tparams:group>IO</tparams:group>
+        </type>
+    </device>
+    <device id="a002">
+        <name>mouse</name>
+        <origin>China</origin>
+        <price>700</price>
+        <type>
+            <tparams:peripheral>true</tparams:peripheral>
+            <tparams:power>5</tparams:power>
+            <tparams:group>IO</tparams:group>
+        </type>
+    </device>
+</devices>

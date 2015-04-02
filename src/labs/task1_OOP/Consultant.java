@@ -102,7 +102,7 @@ public class Consultant {
                 case 2://Add hotel (Econom -- $70 per day)");
                     hotel = new Hotel((choice == 1 ? 100 : 70), 1);
                     //count
-                    System.out.println("How long you plan to be (in days)?");
+                    System.out.println("How long you plan to be (folder days)?");
                     days = getChoice();
                     try {
                         hotel.setCount(days);

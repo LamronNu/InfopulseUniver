@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xc:schema xmlns:xc="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        xmlns:tparams = "http://aaa.com/bbb">
+    <xc:import schemaLocation="F:\infopulse\skiplist\lessons\xml\xcd\tparams.xsd" namespace="http://aaa.com/bbb"/>
+    <xc:element name="devices" type="mydevices"/>
+    <xc:complexType name="mydevices">
+        <xc:sequence>
+            <xc:element name="device" minOccurs="1" maxOccurs="unbounded">
+                <xc:complexType>
+
+                    <xc:sequence>
+                        <xc:element name="name" type="xc:string"/>
+                        <xc:element name="origin" type="xc:string"/>
+                        <xc:element name="price" type="xc:double"/>
+                        <xc:element name="type" type="tparams:mytype"/>
+                    </xc:sequence>
+                    <xc:attribute name="id" type="xc:ID" use="required"/>
+                </xc:complexType>
+            </xc:element>
+        </xc:sequence>
+    </xc:complexType>
+</xc:schema>

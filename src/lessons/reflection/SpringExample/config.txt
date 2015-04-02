@@ -1,0 +1,1 @@
+lessons.reflection.SpringExample.MyClass : lessons.reflection.SpringExample.MyInterface : m : lessons.reflection.SpringExample.B
