@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vouchers xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+          xmlns:hotel="http://aaa.com/bbb"
+          xsi:schemaLocation="http://aaa.com/bbb vouchers.xsd">
+    <voucher id="a001">
+        <voucherType>HOLIDAY</voucherType>
+        <transportType>AVIA</transportType>
+        <country>India</country>
+        <days>5</days>
+        <nights>4</nights>
+        <hotel:hotel>
+            <hotel:foodType>OB</hotel:foodType>
+            <hotel:stars>3</hotel:stars>
+            <hotel:apartament>
+                <hotel:rooms>1</hotel:rooms>
+                <hotel:number>1408</hotel:number>
+                <hotel:services>
+                    <hotel:service>TV</hotel:service>
+                    <hotel:service>CONDITIONER</hotel:service>
+                </hotel:services>
+            </hotel:apartament>
+        </hotel:hotel>
+        <cost>1250</cost>
+        <currency>USD</currency>
+    </voucher>
+
+</vouchers>

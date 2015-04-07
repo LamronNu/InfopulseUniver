@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xc:schema xmlns:xc="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="http://aaa.com/bbb">
+
+    <xc:complexType name="mytype">
+        <xc:sequence>
+            <!--FoodType foodType;OB,BB,HB,HB_PLUS, FB, FB_PLUS, AI, UAI-->
+            <xc:element name="foodType">
+                <xc:simpleType>
+                    <xc:restriction base="xc:string">
+                        <xc:enumeration value="OB"/>
+                        <xc:enumeration value="BB"/>
+                        <xc:enumeration value="HB"/>
+                        <xc:enumeration value="HB_PLUS"/>
+                        <xc:enumeration value="FB"/>
+                        <xc:enumeration value="FB_PLUS"/>
+                        <xc:enumeration value="AI"/>
+                        <xc:enumeration value="UAI"/>
+                    </xc:restriction>
+                </xc:simpleType>
+            </xc:element>
+            <!--int stars;-->
+            <xc:element name="stars">
+                <xc:simpleType>
+                    <xc:restriction base="xc:integer">
+                        <xc:minInclusive value="1"/>
+                        <xc:maxInclusive value="5"/>
+                    </xc:restriction>
+                </xc:simpleType>
+            </xc:element>
+            <!--Apartament apartament;-->
+           <xc:element name="apartament">
+               <xc:complexType>
+                    <xc:sequence>
+                        <!--int rooms;-->
+                        <xc:element name="rooms">
+                            <xc:simpleType>
+                                <xc:restriction base="xc:integer">
+                                    <xc:minInclusive value="1"/>
+                                </xc:restriction>
+                            </xc:simpleType>
+                        </xc:element>
+                        <!--String number;-->
+                        <xc:element name="number" type="xc:string"/>
+                        <!--List<AdditionalService> services;--><!--TV, CONDITIONER, FRIDGE;-->
+                        <xc:element name="services">
+                            <xc:complexType>
+                                <xc:sequence>
+                                    <xc:element name="service" minOccurs="1" maxOccurs="unbounded">
+                                        <xc:simpleType>
+                                            <xc:restriction base="xc:string">
+                                                <xc:enumeration value="TV"/>
+                                                <xc:enumeration value="CONDITIONER"/>
+                                                <xc:enumeration value="FRIDGE"/>
+                                            </xc:restriction>
+                                        </xc:simpleType>
+                                    </xc:element>
+                                </xc:sequence>
+                            </xc:complexType>
+                        </xc:element>
+                    </xc:sequence>
+               </xc:complexType>
+           </xc:element>
+        </xc:sequence>
+    </xc:complexType>
+</xc:schema>

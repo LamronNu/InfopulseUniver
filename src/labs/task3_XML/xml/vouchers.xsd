@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xc:schema xmlns:xc="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        xmlns:hotel = "http://aaa.com/bbb">
+    <xc:import schemaLocation="hotel.xsd" namespace="http://aaa.com/bbb"/>
+    <xc:element name="vouchers">
+        <xc:complexType>
+        <xc:sequence>
+            <xc:element name="voucher" minOccurs="1" maxOccurs="unbounded">
+                <xc:complexType>
+                    <xc:sequence>
+                        <!--VoucherType voucherType;-->
+                        <xc:element name="voucherType">
+                            <xc:simpleType>
+                                <xc:restriction base="xc:string">
+                                    <xc:enumeration value="HOLIDAY"/>
+                                    <xc:enumeration value="EXCURSION"/>
+                                    <xc:enumeration value="REST"/>
+                                    <xc:enumeration value="PILGRIMAGE"/>
+                                </xc:restriction>
+                            </xc:simpleType>
+                        </xc:element>
+                        <!--TransportType transportType; AUTO, AVIA, BUS, TRAIN, SHIP-->
+                        <xc:element name="transportType">
+                            <xc:simpleType>
+                                <xc:restriction base="xc:string">
+                                    <xc:enumeration value="AUTO"/>
+                                    <xc:enumeration value="AVIA"/>
+                                    <xc:enumeration value="BUS"/>
+                                    <xc:enumeration value="TRAIN"/>
+                                    <xc:enumeration value="SHIP"/>
+                                </xc:restriction>
+                            </xc:simpleType>
+                        </xc:element>
+                        <!--String country;-->
+                        <xc:element name="country" type="xc:string"/>
+                        <!--int days;-->
+                        <xc:element name="days" type="xc:int"/>
+                        <!--int nights;-->
+                        <xc:element name="nights" type="xc:int"/>
+                        <!--Hotel hotel;-->
+                        <xc:element name="type" type="hotel:mytype"/>
+                        <!--double cost;-->
+                        <xc:element name="cost" type="xc:double"/>
+                        <!--String currency;-->
+                        <xc:element name="currency" type="xc:string"/>
+                    </xc:sequence>
+                    <xc:attribute name="id" type="xc:ID" use="required"/>
+                </xc:complexType>
+            </xc:element>
+        </xc:sequence>
+    </xc:complexType>
+    </xc:element>
+</xc:schema>
