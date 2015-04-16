@@ -1,4 +1,4 @@
-package test.lessons.multithreading;
+package lessons.multithreading.skiplist;
 
 import lessons.multithreading.skiplist.SkipList;
 import org.junit.Before;
