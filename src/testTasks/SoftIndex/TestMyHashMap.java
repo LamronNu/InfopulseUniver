@@ -12,15 +12,18 @@ import static org.junit.Assert.*;
 public class TestMyHashMap {
     MyHashMap map;
     Random random;
+
     @Before
     public void setUp(){
         map = new MyHashMap();
         random = new Random();
     }
+
     @After
     public void tearDown(){
         map.clear();
     }
+
     //creating map
     @Test
     public void createNewObject(){
@@ -88,11 +91,13 @@ public class TestMyHashMap {
     public void getFromEmptyMap(){
         map.get(0);
     }
+
     @Test(expected = NoSuchElementException.class)
      public void getNotExistsElement(){
         map.put(1, 1l);
         map.get(0);
     }
+
     @Test
     public void getNulls(){
         //put some nulls (according to the test putNulls)
