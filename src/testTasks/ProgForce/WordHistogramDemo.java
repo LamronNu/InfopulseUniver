@@ -1,7 +1,7 @@
-package studyJava.ProgForce;
+package testTasks.ProgForce;
 
-import studyJava.ProgForce.models.Sentence;
-import studyJava.ProgForce.models.Symbol;
+import testTasks.ProgForce.models.Sentence;
+import testTasks.ProgForce.models.Symbol;
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;

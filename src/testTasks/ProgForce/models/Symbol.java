@@ -1,4 +1,4 @@
-package studyJava.ProgForce.models;
+package testTasks.ProgForce.models;
 
 import java.util.ArrayList;
 import java.util.Arrays;

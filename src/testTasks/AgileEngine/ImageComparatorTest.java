@@ -1,4 +1,4 @@
-package studyJava.AgileEngine;
+package testTasks.AgileEngine;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

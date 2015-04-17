@@ -1,4 +1,4 @@
-package studyJava.ProgForce;
+package testTasks.ProgForce;
 
 public class WordHistogramDemoTest {
 

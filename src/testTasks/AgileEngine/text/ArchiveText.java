@@ -1,4 +1,4 @@
-package studyJava.AgileEngine.text;
+package testTasks.AgileEngine.text;
 
 public class ArchiveText {
 //    input: "aaaaabbcccddddddaaa"
