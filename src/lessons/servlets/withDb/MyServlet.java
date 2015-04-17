@@ -1,6 +1,5 @@
 package lessons.servlets.withDb;
 
-import com.sun.corba.se.spi.protocol.RequestDispatcherDefault;
 import com.sun.deploy.net.HttpRequest;
 import com.sun.deploy.net.HttpResponse;
 
@@ -30,10 +29,10 @@ public class MyServlet {
                 client.setSurname(rs.getString(3));
                 clients.add(client);
             }
-            HttpSession session = request.getSession(true);
-            session.setAttribute("clients", clients);
-            RequestDispatcher dispatcher = request.setRequestDispatcher("/clients.jsp");
-            dispatcher.forward(request, response);
+//            HttpSession session = request.getSession(true);
+//            session.setAttribute("clients", clients);
+//            RequestDispatcher dispatcher = request.setRequestDispatcher("/clients.jsp");
+//            dispatcher.forward(request, response);
 
         } catch (SQLException e) {
 
